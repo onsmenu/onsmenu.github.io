@@ -28,8 +28,7 @@ jobs:
     - name: Install dependencies
       run: yarn install
     - name: Buils artifact
-      run: yarn build
-      run: cp CNAME ./build
+      run: yarn build && cp CNAME ./build
     - name: push to release branch
       uses: s0/git-publish-subdir-action@develop
       env:
