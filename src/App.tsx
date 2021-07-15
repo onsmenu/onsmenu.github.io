@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import routes from './routes';
+import ErrorBoundary from './util/ErrorBoundary';
+
+const page = lazy(() => import('./pages/page'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React :)
-        </a>
-      </header>
-    </div>
+      <ErrorBoundary>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                    <Route path={routes.HOME} exact component={page} />
+                    <Route path={routes.GETTING_STARTED}  component={page} />
+                    <Route path={routes.FEATURES} component={page} />
+                    <Route path={routes.PRICING}  component={page} />
+                    <Route path={routes.CONTACT}component={page} />
+                </Switch>
+            </Suspense>
+      </ErrorBoundary>
   );
 }
 
