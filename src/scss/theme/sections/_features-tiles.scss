@@ -4,7 +4,21 @@
     background: get-color(primary, 1);  
 }
 
+.features-tiles-item-header {
+    background: get-color(light, 2);
+}
+
+.features-tiles {
+    
+    background: get-color(light, 2);
+}
+
+.feature-inner {
+    padding-top: 50px;
+}
+
 .features-tiles-item-content {
+    background: get-color(light, 2);
 
     h4 {
         @include font-family(heading);
