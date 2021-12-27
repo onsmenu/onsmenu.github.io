@@ -27,10 +27,10 @@ jobs:
         cache: 'yarn'
     - name: Install dependencies
       run: yarn install
-    - name: Buils artifact
+    - name: Build artifact
       run: yarn build && cp CNAME ./public && cp sitemap.xml ./public
     - name: push to release branch
-      uses: s0/git-publish-subdir-action@develop
+      uses: s0/git-publish-subdir-action@v2.5.0
       env:
         REPO: self
         BRANCH: release
